@@ -1,0 +1,10 @@
+PECA_Module_dir = './.';
+spesies = 'mouse';
+SampleNamefile ='./exampleData/SampleName.txt';
+Expfile='./exampleData/Exp.txt';
+TFNamefile='./exampleData/TFName.txt';
+TGNamefile='./exampleData/TGName.txt';
+TRS_dir='./exampleData';
+Outdir='./exampleData/Out';
+lambda=0.2;
+K=[1,3,3,4,4];
