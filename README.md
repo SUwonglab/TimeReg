@@ -1,4 +1,4 @@
-# TCRA
+# TimeReg
 time course regulatory analysis from paired gene expression and chromatin accessibility time course data 
 
 At each time point we use the expression and accessibility data to define two types of scores for regulatory relations. 
