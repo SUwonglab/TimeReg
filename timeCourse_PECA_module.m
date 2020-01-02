@@ -40,7 +40,7 @@ for j=1:K(ii)
     gene=intersect(gene1,TGCluster1{1,ii}{1,j}(:,1));
     if size(gene,1)>50
         d=ismember(TFName,TFCluster1{1,ii}{1,j}(:,1));
-        S2=TRS_norm{1,ii}(d==1,:)-repmat(log2(1+TFExp(d==1,ii)),1,length(Symbol))-repmat(log2(1+Exp(:,ii)'),length(TFName),1);
+        S2=TRS_norm{1,ii}(d==1,:)-repmat(log2(1+TFExp(d==1,ii)),1,length(Symbol))-repmat(log2(1+Exp(:,ii)'),sum(d),1);
         [score q1 q3 q4 FC]=Driver(gene,S2,R(d==1,:),TFName(d==1,:),Symbol,TFExp(d==1,ii-1),TFExp(d==1,ii));
          sTFName=TFName(d==1);
         FC=log((1+TFExp(d==1,ii))./(1+TFExp(d==1,ii-1)));
