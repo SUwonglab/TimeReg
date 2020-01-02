@@ -58,6 +58,9 @@ end
 
 figure
 [d TFidx]=ismember(TFName,Symbol);
+size(p1)
+size(FC1)
+size(Exp(TFidx))
 DriverScore=-log10(p1).*FC1.*repmat(Exp(TFidx),1,k);
 TGScore=-log10(p2).*FC2.*repmat(Exp,1,k);
 for i=1:k
