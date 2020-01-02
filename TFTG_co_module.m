@@ -58,8 +58,8 @@ end
 
 figure
 [d TFidx]=ismember(TFName,Symbol);
-DriverScore=-log10(p1).*FC1.*Exp(TFidx);
-TGScore=-log10(p2).*FC2.*Exp;
+DriverScore=-log10(p1).*FC1.*repmat(Exp(TFidx),1,k);
+TGScore=-log10(p2).*FC2.*repmat(Exp,1,k);
 for i=1:k
     score=[p2(:,i),FC2(:,i),Exp,TGScore(:,i)];
     [d f]=sort(TGScore(:,i),'descend');
