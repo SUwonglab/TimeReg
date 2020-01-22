@@ -14,5 +14,5 @@ wget https://github.com/SUwonglab/TimeReg/archive/master.zip
 
 unzip master.zip
 
-cd PECA-master/
+cd TimeReg-master/
 
