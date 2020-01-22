@@ -7,3 +7,6 @@ while the cis-regulatory score (CRS) quantifies the regulatory strengths of a re
 Based on these scores, we use Non-negative matrix factorization to extract the core regulatory modules that characterize different 
 biological processes and/or subpopulations of cells, and we identify diver TFs (i.e. TFs driving expression changes between adjacent
 time points) based on changes in TFs expression and changes in CRS on REs with increasing accessibility.
+
+#Install
+https://github.com/SUwonglab/TimeReg/archive/master.zip
