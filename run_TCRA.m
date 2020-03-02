@@ -29,7 +29,7 @@ Exp=Exp(f,:);
 Exp2=log2(1+Exp)-repmat(prior.Exp_median(f2),1,m);
 TFTG_corr_private=corr(TFExp',Exp');
 for i=1:m
-    TRS_norm{1,i}=dlmread([TRS_dir,'/',Sample{i,1},'_TRS.txt']);
+    TRS_norm{1,i}=dlmread([TRS_dir,'/',Sample{i,1},'_TRS.txt'],'\t',1,1);
 end
 %%%%%%%%%%%%%%%%%%%%%
 [TFCluster1,TGCluster1,DriverTF,match]=timeCourse_PECA_module(TRS_norm,Exp,Exp2,TGName,Sample,TFTG_corr_public,TFTG_corr_private,lambda,TFName,TFExp,K,Outdir);
