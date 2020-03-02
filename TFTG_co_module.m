@@ -1,4 +1,8 @@
 function [TFCluster1,TGCluster1,W,H,p1,p2,FC1,FC2,ZZ,Q]=TFTG_co_module(BI,R,TFName,Symbol,k,Exp)
+grad3=colorGradient([255,255,255]/255,[250,128,114],10);
+grad2=colorGradient([224,255,255]/255,[1,1,1],10);
+grad=[grad2;grad3];
+
 opt = statset('MaxIter',200,'Display','final','TolFun',1e-6);
 if k<=1
 TFCluster1{1,1}=TFName;
@@ -24,11 +28,12 @@ BI2=[];
 for i=1:size(W,2)
 BI2=[BI2 BI1(:,S2==i)];
 end
-BI2(BI2>1)=1;
+BI2(BI2>0.2)=0.2;
 figure
 imagesc(BI2)
-colormap(hot)
+colormap(grad)
 colorbar
+caxis([0 0.2])
 for i=1:size(W,2)
 TFCluster{1,i}=TFName(S1==i);
 TGCluster{1,i}=Symbol(S2==i);
