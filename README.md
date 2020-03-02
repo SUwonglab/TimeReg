@@ -16,3 +16,5 @@ unzip master.zip
 
 cd TimeReg-master/
 
+bash install.sh
+
