@@ -18,3 +18,12 @@ cd TimeReg-master/
 
 bash install.sh
 
+## Example data (RA inducntion of mESC)
+bash tcPECA.sh
+## Run TimeReg 
+Edit TCRA_config file as shown un RA induction example and run following script:
+
+cat Your_config_file TCRA.m > run_TCRA.m
+
+matlab -nodisplay -nosplash -nodesktop -r "run_TCRA; exit"
+
