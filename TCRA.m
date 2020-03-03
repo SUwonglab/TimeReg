@@ -1,5 +1,5 @@
 
-mkdir Outdir
+mkdir(Outdir)
 Sample=importdata(SampleNamefile);
 m=size(Sample,1);
 TFName=importdata(TFNamefile);
