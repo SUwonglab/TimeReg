@@ -7,7 +7,7 @@ s=[DriverTF{1,ii}{1,j}(:,1);TFCluster1{1,ii}{1,j}(:,1)];
 else
 s=TFCluster1{1,ii}{1,j}(:,1);
 end
-s=s(1:20,1);
+s=s(1:min(20,length(s)),1);
 z1=zscore(TRS_norm{1,ii-1}')';
 [d f]=ismember(s,Symbol);
 z11=z1(:,f);
@@ -15,7 +15,7 @@ clear c
 clear c1
 for i1=1:K(ii-1)
 [d1 f1]=ismember(TFCluster1{1,ii-1}{1,i1}(:,1),TFName);
-c{1,i1}=z11(f1(1:20),:);
+c{1,i1}=z11(f1(1:min(20,length(f1))),:);
 c1(1,i1)=mean(mean(c{1,i1}));
 end
 [~,match_idx]=max(c1);
