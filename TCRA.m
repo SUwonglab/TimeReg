@@ -19,6 +19,7 @@ TFExp=Exp(f,:);
 Exp=Exp(f,:);
 Exp2=log2(1+Exp)-repmat(prior.Exp_median(f2),1,m);
 TFTG_corr_private=corr(TFExp',Exp');
+TFTG_corr_private(isnan(TFTG_corr_private))=0;
 for i=1:m
     TRS_norm{1,i}=dlmread([TRS_dir,'/',Sample{i,1},'_TRS.txt'],'\t',1,1);
 end
