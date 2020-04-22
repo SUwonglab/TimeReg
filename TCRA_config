@@ -20,3 +20,4 @@ K=[1,3,3,4,4];
     %7, species: 'mouse' or 'human'.
     %8, lambda: weight of correlation from your time course data (lambda) verse public data (1-lambda), it is continious value between 0 and 1.
     %9, K: number of subpopulation on each time point, which is a 1*T vector.
+    
