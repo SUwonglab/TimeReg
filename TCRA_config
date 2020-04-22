@@ -1,10 +1,22 @@
 PECA_Module_dir = './.';
-spesies = 'mouse';
-SampleNamefile ='./exampleData/SampleName.txt';
 Expfile='./exampleData/Exp.txt';
-TFNamefile='./exampleData/TFName.txt';
-TGNamefile='./exampleData/TGName.txt';
-TRS_dir='./exampleData';
-Outdir='./exampleData/Out';
+sample_trs_files='./exampleData/sample_trs_info1';
+TFName_file='./exampleData/TFName.txt';
+TGName_file='./exampleData/TGName.txt';
+Outdir='./exampleData/out';
+pre_process_required=0;
+species = 'mouse';
 lambda=0.2;
 K=[1,3,3,4,4];
+
+%input format (tab delimited), here T is the number of time points
+    %1, Expfile: name (location) of the expression file. It is a T+1 columns file, first column is the gene symbol, 2 to T+1 columns are expression value (FPKM or TPM), 
+    %2, sample_trs_files: T rows 2 column file, first column is the sample name (no space allowed), second column is the name of the TRS file from PECA2 (no space allowed).
+    %example: mESC  ./PECA2/Results/mESC/TFTG_score.txt
+    %3, TFName_file: file name of the TF Names from PECA2
+    %4, TGName_file: file name of the TG Names from PECA2
+    %5, out_folder: name of output folder
+    %6, pre_process_required: 0 or 1. If you require preprocess, set this variavble 1, othervise 0. pre-process will remove some genes with constant expression.
+    %7, species: 'mouse' or 'human'.
+    %8, lambda: weight of correlation from your time course data (lambda) verse public data (1-lambda), it is continious value between 0 and 1.
+    %9, K: number of subpopulation on each time point, which is a 1*T vector.
