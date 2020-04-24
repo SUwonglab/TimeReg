@@ -12,6 +12,11 @@ close all
 for j=1:K1(ii)
     filename=[Outdir,'/',Sample{ii},'_module',int2str(j),'_Target.txt'];
     fid=fopen(filename,'wt');
+          fprintf(fid, '%s\t','Symbol');
+          fprintf(fid, '%s\t','P-value');
+          fprintf(fid, '%s\t','FoldChange');
+          fprintf(fid, '%s\t','Expression');
+          fprintf(fid, '%s\n','Specifcity_score');
     for iter=1:size(TGCluster1{1,ii}{1,j},1)
           fprintf(fid, '%s\t',TGCluster1{1,ii}{1,j}{iter,1});
           fprintf(fid, '%g\t',TGCluster1{1,ii}{1,j}{iter,2});
@@ -22,6 +27,11 @@ for j=1:K1(ii)
     fclose(fid);
     filename=[Outdir,'/',Sample{ii},'_module',int2str(j),'_TF.txt'];
     fid=fopen(filename,'wt');
+          fprintf(fid, '%s\t','TFName');
+          fprintf(fid, '%s\t','P-value');
+          fprintf(fid, '%s\t','FoldChange');
+          fprintf(fid, '%s\t','Expression');
+          fprintf(fid, '%s\n','Specifcity_score');
     for iter=1:size(TFCluster1{1,ii}{1,j},1)
           fprintf(fid, '%s\t',TFCluster1{1,ii}{1,j}{iter,1});
           fprintf(fid, '%g\t',TFCluster1{1,ii}{1,j}{iter,2});
@@ -49,18 +59,18 @@ for j=1:K(ii)
         p(q3>0.01)=1;
         score1=FC.*(-log10(p)).*(FC>log(1.5)).*(p<0.01);
         [d f]=sort(score1,'descend');
-        DriverTF{1,ii}{1,j}=[sTFName(f(d>0)) num2cell(q1(f(d>0))) num2cell(q3(f(d>0))) num2cell(p(f(d>0)))];
+        DriverTF{1,ii}{1,j}=[sTFName(f(d>0)) num2cell(p(f(d>0)))];
         else
         DriverTF{1,ii}{1,j}=[];
     end
     if size(DriverTF{1,ii}{1,j},1)>0
         filename=[Outdir,'/',Sample{ii},'_module',int2str(j),'_DriverTF.txt'];
         fid=fopen(filename,'wt');
+          fprintf(fid, '%s\t','TFName');
+          fprintf(fid, '%s\n','P-value');
         for iter=1:size(DriverTF{1,ii}{1,j},1)
               fprintf(fid, '%s\t',DriverTF{1,ii}{1,j}{iter,1});
-              fprintf(fid, '%g\t',DriverTF{1,ii}{1,j}{iter,2});
-              fprintf(fid, '%g\t',DriverTF{1,ii}{1,j}{iter,3});
-              fprintf(fid, '%g\n',DriverTF{1,ii}{1,j}{iter,4});
+              fprintf(fid, '%g\n',DriverTF{1,ii}{1,j}{iter,2});
         end
         fclose(fid);
     end
@@ -70,6 +80,8 @@ end
 match=TimeCourseMatching(DriverTF,TFCluster1,TRS_norm,Symbol,TFName,K);
 filename=[Outdir,'/','TimeCourse_ancestor-descendant_mapping.txt'];
 fid=fopen(filename,'wt');
+          fprintf(fid, '%s\t','Ancestor');
+          fprintf(fid, '%s\n','Descendant');
 for iter=1:size(match,1)
               fprintf(fid, '%s\t',[Sample{match(iter,1)-1},'_module',int2str(match(iter,3))]);
               fprintf(fid, '%s\n',[Sample{match(iter,1)},'_module',int2str(match(iter,2))]);
